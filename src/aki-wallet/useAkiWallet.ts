@@ -98,13 +98,13 @@ export const useAkiWallet = () => {
   const signMessage = (message: string) => {
     const platform = getPlatform(walletName);
     if (platform === "Ethereum") {
-      ethereum.signMessage(message);
+      return ethereum.signMessage(message);
     } else if (platform === "Aptos") {
-      aptos.signMessage(message);
+      return aptos.signMessage(message);
     } else if (platform === "Sui") {
-      sui.signMessage(message);
+      return sui.signMessage(message);
     } else if (platform === "Cosmos") {
-      cosmos.signMessage(message);
+      return cosmos.signMessage(message);
     }
   };
 

@@ -15,10 +15,11 @@ export const useAptos = () => {
     try {
       const result = await aptos.signMessage(payload);
       akiLog(JSON.stringify(result, null, 2));
-      return result;
+      return result.signature as string;
     } catch (error: any) {
       akiError(error);
     }
+    return "";
   };
 
   const installed = (wallet_name: WalletName) => {

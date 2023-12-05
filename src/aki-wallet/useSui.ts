@@ -9,16 +9,18 @@ export const useSui = () => {
       akiError("Not found Wallet account");
       return;
     }
+
     try {
       const msgBytes = new TextEncoder().encode(message);
-      const result = await wallet.signPersonalMessage({
+      const result = await wallet.signMessage({
         message: msgBytes,
       });
       akiLog(JSON.stringify(result, null, 2));
-      return result;
+      return result.signature;
     } catch (error: any) {
       akiError(error);
     }
+    return "";
   };
 
   const connect = async (wallet_name: WalletName) => {

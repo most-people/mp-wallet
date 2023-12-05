@@ -52,4 +52,4 @@ Todo list:
    - ~~Dora Vota~~
    - ~~Injective~~
 2. ~~Keplr 钱包需要支持签名~~
-3. Martian Sui Wallet 钱包需要支持签名
+3. ~~Martian Sui Wallet 钱包需要支持签名~~
