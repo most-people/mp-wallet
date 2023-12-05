@@ -111,9 +111,9 @@ export const useEthereum = () => {
       // 移动端打开 app
       openWalletSchema();
 
-      const signature = await signer.signMessage(message);
-      akiLog("Sig: " + signature);
-      return signature;
+      const sig = await signer.signMessage(message);
+      akiLog("Sig: " + sig);
+      return sig;
     } catch (error: any) {
       const message =
         error?.data?.message ||
