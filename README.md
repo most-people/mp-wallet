@@ -44,3 +44,12 @@ You don’t have to ever use `eject`. The curated feature set is suitable for sm
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
 To learn React, check out the [React documentation](https://reactjs.org/).
+
+Todo list:
+
+1. Cosmos 网络需要支持切链 Change Network
+   - Kava
+   - Dora Vota
+   - Injective
+2. Keplr 钱包需要支持签名
+3. Martian Sui Wallet 钱包需要支持签名

@@ -22,7 +22,16 @@ const AptosWallet = [new MartianWallet(), new PetraWallet()];
 
 root.render(
   <React.StrictMode>
-    <ChainProvider chains={chains} assetLists={assets} wallets={wallets}>
+    <ChainProvider
+      chains={chains}
+      assetLists={assets}
+      wallets={wallets}
+      signerOptions={{
+        preferredSignType: () => {
+          return "amino";
+        },
+      }}
+    >
       <WalletProvider defaultWallets={[SuiWallet]}>
         <AptosWalletAdapterProvider
           plugins={AptosWallet}

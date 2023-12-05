@@ -89,6 +89,24 @@ export default function App() {
                 />
               </>
             )}
+
+            {aki.getPlatform(aki.walletName) === "Cosmos" && (
+              <>
+                <br />
+                <code>Choose Network</code>
+                <br />
+                <br />
+                <button onClick={() => aki.cosmos.changeNetwork("Dora Vota")}>
+                  Dora Vota
+                </button>
+                <button onClick={() => aki.cosmos.changeNetwork("Kava")}>
+                  Kava
+                </button>
+                <button onClick={() => aki.cosmos.changeNetwork("Injective")}>
+                  Injective
+                </button>
+              </>
+            )}
           </>
         ) : (
           <>

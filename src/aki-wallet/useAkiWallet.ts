@@ -161,5 +161,9 @@ export const useAkiWallet = () => {
     ethereum,
     // Sui
     sui,
+    // Aptos
+    aptos,
+    // Cosmos
+    cosmos,
   };
 };

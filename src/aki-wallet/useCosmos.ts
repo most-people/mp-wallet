@@ -1,5 +1,7 @@
-import { useChainWallet, useWalletClient } from "@cosmos-kit/react-lite";
+import { useChainWallet } from "@cosmos-kit/react-lite";
 import { WalletName, akiError } from "./useAkiWallet";
+
+export type CosmosChainName = "Kava" | "Dora Vota" | "Injective";
 
 export const useCosmos = () => {
   // Juno: "juno",
@@ -34,11 +36,16 @@ export const useCosmos = () => {
     akiError("Cosmos cannot sign message");
   };
 
+  const changeNetwork = (chain_name: CosmosChainName) => {
+    akiError("Todo: change network" + chain_name);
+  };
+
   return {
     signMessage,
     connect,
     disconnect: wallet.disconnect,
     installed,
     wallet,
+    changeNetwork,
   };
 };
