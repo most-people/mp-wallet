@@ -1,22 +1,16 @@
 import { useChainWallet, useWallet } from "@cosmos-kit/react-lite";
 import { WalletName, akiError, akiLog } from "./useAkiWallet";
 import { chains } from "chain-registry";
+import { useState } from "react";
 
 export type CosmosChainName = "Cosmos Hub" | "Kava" | "Dora Vota" | "Injective";
 
-const walletName = "keplr-extension";
-
-const getChainName = (chain_name: CosmosChainName) => {
-  return {
-    "Cosmos Hub": "cosmoshub",
-    Kava: "kava",
-    "Dora Vota": "kava",
-    Injective: "kava",
-  }[chain_name];
-};
-
 export const useCosmos = () => {
-  const wallet = useChainWallet(getChainName("Cosmos Hub"), walletName, false);
+  const walletName = "keplr-extension";
+
+  const [chainName, setChainName] = useState("cosmoshub");
+
+  const wallet = useChainWallet(chainName, walletName, false);
   const { mainWallet } = useWallet(walletName);
 
   const installed = (wallet_name: WalletName) => {
@@ -42,7 +36,7 @@ export const useCosmos = () => {
 
   const signMessage = async (message: string) => {
     const chain = chains.find((chain) => {
-      return chain.chain_name === getChainName("Cosmos Hub");
+      return chain.chain_name === chainName;
     });
 
     try {
@@ -62,7 +56,14 @@ export const useCosmos = () => {
   };
 
   const changeNetwork = (chain_name: CosmosChainName) => {
-    akiError("Todo: change network" + chain_name);
+    const dict = {
+      "Cosmos Hub": "cosmoshub",
+      Kava: "kava",
+      "Dora Vota": "doravota",
+      Injective: "injective",
+    };
+    setChainName(dict[chain_name]);
+    connect("Keplr");
   };
 
   return {

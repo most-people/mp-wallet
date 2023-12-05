@@ -47,9 +47,9 @@ To learn React, check out the [React documentation](https://reactjs.org/).
 
 Todo list:
 
-1. Cosmos 网络需要支持切链 Change Network
-   - Kava
-   - Dora Vota
-   - Injective
-2. Keplr 钱包需要支持签名
+1. ~~Cosmos 网络需要支持切链 Change Network~~
+   - ~~Kava~~
+   - ~~Dora Vota~~
+   - ~~Injective~~
+2. ~~Keplr 钱包需要支持签名~~
 3. Martian Sui Wallet 钱包需要支持签名
