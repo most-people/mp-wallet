@@ -1,0 +1,79 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+pre {
+  text-align-last: left;
+}
+code {
+  white-space: wrap;
+  word-break: break-all;
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+button {
+  cursor: pointer;
+  padding: 9px 16px;
+  background: var(--wui-color-accent-100);
+  border: 1px solid var(--wui-gray-glass-010);
+  border-radius: var(--wui-border-radius-m);
+  transition: opacity 200ms ease-in-out 0s;
+  opacity: var(--local-opacity-100);
+  color: var(--wui-color-inverse-100);
+  font-size: var(--wui-font-size-paragraph);
+  letter-spacing: var(--wui-letter-spacing-paragraph);
+  font-family: var(--wui-font-family);
+  font-weight: var(--wui-font-weight-regular);
+  margin-bottom: 10px;
+}
+button:hover {
+  background-color: var(--wui-color-accent-090);
+}
+button + button {
+  margin-left: 10px;
+}
+
+input,
+textarea {
+  padding: 9px 16px;
+  background: color-mix(
+    in srgb,
+    var(--w3m-color-mix) var(--w3m-color-mix-strength),
+    var(--wui-color-modal-bg-base)
+  );
+  border: 1px solid var(--wui-gray-glass-010);
+  border-radius: var(--wui-border-radius-m);
+  transition: opacity 200ms ease-in-out 0s;
+  opacity: var(--local-opacity-100);
+  color: var(--wui-color-inverse-100);
+  font-size: var(--wui-font-size-paragraph);
+  letter-spacing: var(--wui-letter-spacing-paragraph);
+  font-family: var(--wui-font-family);
+  font-weight: var(--wui-font-weight-regular);
+  margin-bottom: 10px;
+  outline: 0;
+  width: 100%;
+  box-sizing: border-box;
+  resize: none;
+}
+
+header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+}
+main {
+  max-width: 800px;
+  margin: 0 auto;
+}
+footer {
+  margin: 0 auto;
+}
