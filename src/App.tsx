@@ -113,10 +113,12 @@ export default function App() {
             <button onClick={() => aki.connect("WalletConnect")}>
               WalletConnect
             </button>
-            <button onClick={() => aki.connect("MetaMask")}>MetaMask</button>
+            <button onClick={() => aki.connect("MetaMask")}>MetaMask</button>{" "}
+            {aki.installed("MetaMask") ? "" : "Not installed"}
             <button onClick={() => aki.connect("OKX Wallet")}>
               OKX Wallet
-            </button>
+            </button>{" "}
+            {aki.installed("OKX Wallet") ? "" : "Not installed"}
             <br />
             <button onClick={() => aki.connect("Sui Wallet")}>
               Sui Wallet
@@ -145,7 +147,7 @@ export default function App() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          @2023 AkiProtocol.io丨Version 12.01.09.29
+          @2023 AkiProtocol.io丨Version 12.06.21.12
         </a>
       </footer>
     </div>

@@ -11,7 +11,7 @@ import {
   useDisconnect,
   useWeb3ModalProvider,
 } from "@web3modal/ethers/react";
-import { akiError, akiLog } from "./useAkiWallet";
+import { WalletName, akiError, akiLog } from "./useAkiWallet";
 
 export interface NativeTokenData {
   toAddress: string;
@@ -226,14 +226,39 @@ export const useEthereum = () => {
     open({ view: "Networks" });
   };
 
+  const installed = (wallet_name: WalletName) => {
+    if (wallet_name === 'WalletConnect') {
+      return true;
+    } else if (wallet_name === "MetaMask") {
+      if ("ethereum" in window) {
+        const ethereum = window.ethereum as any;
+        return ethereum?.isMetaMask === true;
+      }
+    } else if (wallet_name === "OKX Wallet") {
+      if ("okexchain" in window) {
+        return true;
+      }
+    }
+    return false;
+  };
+
+  const connect = async (wallet_name: WalletName) => {
+    if (!installed(wallet_name)) {
+      akiError("Not Found " + wallet_name);
+      return;
+    }
+    open({ view: "Connect" });
+  };
+
   return {
     account,
-    connect: open,
+    connect,
     disconnect,
     signMessage,
     sendNativeToken,
     sendERC20Token,
     changeNetwork,
     walletProvider,
+    installed,
   };
 };

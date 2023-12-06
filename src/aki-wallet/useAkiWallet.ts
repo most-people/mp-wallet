@@ -73,7 +73,7 @@ export const useAkiWallet = () => {
     localStorage.setItem("wallet_name", wallet_name);
     const platform = getPlatform(wallet_name);
     if (platform === "Ethereum") {
-      ethereum.connect({ view: "Connect" });
+      ethereum.connect(wallet_name);
     } else if (platform === "Aptos") {
       aptos.connect(wallet_name);
     } else if (platform === "Sui") {
@@ -137,7 +137,7 @@ export const useAkiWallet = () => {
   const installed = (wallet_name: WalletName) => {
     const platform = getPlatform(wallet_name);
     if (platform === "Ethereum") {
-      return true;
+      return ethereum.installed(wallet_name);
     } else if (platform === "Aptos") {
       return aptos.installed(wallet_name);
     } else if (platform === "Sui") {

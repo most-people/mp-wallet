@@ -24,13 +24,11 @@ export const useSui = () => {
   };
 
   const connect = async (wallet_name: WalletName) => {
-    for (const e of wallet.allAvailableWallets) {
-      if (e.name === wallet_name) {
-        select(e.name);
-        return;
-      }
+    if (!installed(wallet_name)) {
+      akiError("Not Found " + wallet_name);
+      return;
     }
-    akiError("Not Found " + wallet_name);
+    select(wallet_name);
   };
 
   const installed = (wallet_name: WalletName) => {

@@ -34,15 +34,15 @@ export const useAptos = () => {
   };
 
   const connect = async (wallet_name: WalletName) => {
-    if (installed(wallet_name)) {
-      try {
-        await aptos.connect(wallet_name as AptosWalletName);
-      } catch (error: any) {
-        akiError(error);
-      }
+    if (!installed(wallet_name)) {
+      akiError("Not Found " + wallet_name);
       return;
     }
-    akiError("Not Found " + wallet_name);
+    try {
+      await aptos.connect(wallet_name as AptosWalletName);
+    } catch (error: any) {
+      akiError(error);
+    }
   };
 
   return {

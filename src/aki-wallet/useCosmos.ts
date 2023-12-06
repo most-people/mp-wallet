@@ -23,15 +23,14 @@ export const useCosmos = () => {
   };
 
   const connect = async (wallet_name: WalletName) => {
-    if (installed(wallet_name)) {
-      try {
-        await wallet.connect();
-      } catch (error: any) {
-        akiError(error);
-      }
-      return;
+    if (!installed(wallet_name)) {
+      akiError("Not Found " + wallet_name);
     }
-    akiError("Not Found " + wallet_name);
+    try {
+      await wallet.connect();
+    } catch (error: any) {
+      akiError(error);
+    }
   };
 
   const signMessage = async (message: string) => {
