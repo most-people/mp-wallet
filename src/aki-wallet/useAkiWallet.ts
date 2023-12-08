@@ -53,6 +53,24 @@ export const useAkiWallet = () => {
 
   const [walletName, setWalletName] = useState<WalletName>("");
 
+  const platform = useMemo(() => {
+    return getPlatform(walletName);
+  }, [walletName]);
+
+  const chainId = useMemo(() => {
+    if (platform === "Ethereum") {
+      return ethereum.chainId;
+    }
+    return ''
+  }, [ethereum.chainId]);
+
+  const chainName = useMemo(() => {
+    if (platform === "Ethereum") {
+      return ethereum.chainName;
+    }
+    return ''
+  }, [ethereum.chainId]);
+
   const address = useMemo(() => {
     return (
       ethereum.account.address ||
@@ -82,6 +100,7 @@ export const useAkiWallet = () => {
       cosmos.connect(wallet_name);
     }
   };
+
   const disconnect = async () => {
     try {
       await Promise.all([
@@ -121,10 +140,10 @@ export const useAkiWallet = () => {
     }
   };
 
-  const changeNetwork = () => {
+  const changeChain = () => {
     const platform = getPlatform(walletName);
     if (platform === "Ethereum") {
-      ethereum.changeNetwork();
+      ethereum.changeChain();
     } else if (platform === "Aptos") {
       //
     } else if (platform === "Sui") {
@@ -148,6 +167,7 @@ export const useAkiWallet = () => {
   };
 
   return {
+    platform,
     getPlatform,
     walletName,
     address,
@@ -156,7 +176,9 @@ export const useAkiWallet = () => {
     signMessage,
     sendNativeToken,
     installed,
-    changeNetwork,
+    changeChain,
+    chainId,
+    chainName,
     // Ethereum
     ethereum,
     // Sui

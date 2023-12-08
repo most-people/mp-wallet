@@ -223,7 +223,7 @@ export const useEthereum = () => {
     return "";
   };
 
-  const changeNetwork = () => {
+  const changeChain = () => {
     open({ view: "Networks" });
   };
 
@@ -266,7 +266,7 @@ export const useEthereum = () => {
     signMessage,
     sendNativeToken,
     sendERC20Token,
-    changeNetwork,
+    changeChain,
     walletProvider,
     installed,
     chainId,

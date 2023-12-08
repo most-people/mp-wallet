@@ -22,10 +22,15 @@ export default function App() {
         <p>Aki Protocol | Web3 Influencer Marketing, Rewards & Data</p>
       </header>
       <main>
-        <code>{aki.getPlatform(aki.walletName)}: </code>
-        <code>{aki.walletName}</code>
+        <code>
+          {aki.platform}: {aki.walletName}
+        </code>
         <br />
-        <code>{aki.address}</code>
+        <code>Address: {aki.address}</code>
+        <br />
+        <code>Chain ID: {aki.chainId}</code>
+        <br />
+        <code>Chain Name: {aki.chainName}</code>
         <br />
         <br />
         {aki.address ? (
@@ -34,9 +39,9 @@ export default function App() {
             <button onClick={() => aki.signMessage("Hello! Aki Protocol")}>
               Sign Message
             </button>
-            {aki.getPlatform(aki.walletName) === "Ethereum" && (
+            {aki.platform === "Ethereum" && (
               <>
-                <button onClick={() => aki.changeNetwork()}>
+                <button onClick={() => aki.changeChain()}>
                   Choose Network
                 </button>
                 <button
@@ -58,12 +63,6 @@ export default function App() {
                 </button>
                 <br />
                 <br />
-                <pre>
-                  <code>Chain ID: {aki.ethereum.chainId}</code>
-                </pre>
-                <pre>
-                  <code>Chain Name: {aki.ethereum.chainName}</code>
-                </pre>
                 <pre>
                   <code>ERC20 Token Address:</code>
                 </pre>
@@ -96,19 +95,19 @@ export default function App() {
               </>
             )}
 
-            {aki.getPlatform(aki.walletName) === "Cosmos" && (
+            {aki.platform === "Cosmos" && (
               <>
                 <br />
                 <code>Choose Network</code>
                 <br />
                 <br />
-                <button onClick={() => aki.cosmos.changeNetwork("Dora Vota")}>
+                <button onClick={() => aki.cosmos.changeChain("Dora Vota")}>
                   Dora Vota
                 </button>
-                <button onClick={() => aki.cosmos.changeNetwork("Kava")}>
+                <button onClick={() => aki.cosmos.changeChain("Kava")}>
                   Kava
                 </button>
-                <button onClick={() => aki.cosmos.changeNetwork("Injective")}>
+                <button onClick={() => aki.cosmos.changeChain("Injective")}>
                   Injective
                 </button>
               </>

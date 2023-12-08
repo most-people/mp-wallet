@@ -54,7 +54,7 @@ export const useCosmos = () => {
     return "";
   };
 
-  const changeNetwork = (chain_name: CosmosChainName) => {
+  const changeChain = (chain_name: CosmosChainName) => {
     const dict = {
       "Cosmos Hub": "cosmoshub",
       Kava: "kava",
@@ -71,6 +71,6 @@ export const useCosmos = () => {
     disconnect: wallet.disconnect,
     installed,
     wallet,
-    changeNetwork,
+    changeChain,
   };
 };
