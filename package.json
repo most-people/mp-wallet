@@ -3,9 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@aptos-labs/wallet-adapter-react": "^2.0.0",
+    "@aptos-labs/wallet-adapter-react": "^2.1.1",
     "@cosmos-kit/keplr": "^2.4.12",
-    "@cosmos-kit/react-lite": "^2.5.9",
+    "@cosmos-kit/react-lite": "^2.5.10",
     "@martianwallet/aptos-wallet-adapter": "^0.0.4",
     "@suiet/wallet-kit": "^0.2.22",
     "@walletconnect/modal": "^2.6.2",

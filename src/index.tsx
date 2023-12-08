@@ -25,7 +25,7 @@ root.render(
     <ChainProvider
       chains={chains}
       assetLists={assets}
-      wallets={wallets}
+      wallets={wallets as any[]}
       signerOptions={{
         preferredSignType: () => {
           return "amino";

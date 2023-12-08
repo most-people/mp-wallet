@@ -6,14 +6,14 @@ settings:
 
 dependencies:
   '@aptos-labs/wallet-adapter-react':
-    specifier: ^2.0.0
-    version: 2.0.0(@aptos-labs/ts-sdk@0.0.7)(aptos@1.20.0)(react@18.2.0)
+    specifier: ^2.1.1
+    version: 2.1.1(@aptos-labs/ts-sdk@1.0.0)(aptos@1.20.0)(react@18.2.0)
   '@cosmos-kit/keplr':
     specifier: ^2.4.12
     version: 2.4.12(@cosmjs/amino@0.32.0)(@cosmjs/cosmwasm-stargate@0.32.0)(@cosmjs/proto-signing@0.32.0)(@cosmjs/stargate@0.32.0)(cosmjs-types@0.9.0)
   '@cosmos-kit/react-lite':
-    specifier: ^2.5.9
-    version: 2.5.9(@cosmjs/amino@0.32.0)(@cosmjs/cosmwasm-stargate@0.32.0)(@cosmjs/proto-signing@0.32.0)(@cosmjs/stargate@0.32.0)(cosmjs-types@0.9.0)(react-dom@18.2.0)(react@18.2.0)
+    specifier: ^2.5.10
+    version: 2.5.10(@cosmjs/amino@0.32.0)(@cosmjs/cosmwasm-stargate@0.32.0)(@cosmjs/proto-signing@0.32.0)(@cosmjs/stargate@0.32.0)(cosmjs-types@0.9.0)(react-dom@18.2.0)(react@18.2.0)
   '@martianwallet/aptos-wallet-adapter':
     specifier: ^0.0.4
     version: 0.0.4
@@ -136,8 +136,8 @@ packages:
       - debug
     dev: false
 
-  /@aptos-labs/ts-sdk@0.0.7:
-    resolution: {integrity: sha512-6YRVRrrKFIo2wiYVmrgcl6oj87B2LW+AhgrAQGIvwHPzr+ihQl2woFpC/UmygG9dv+n8Ow9XOhuFGlg60Xwngw==}
+  /@aptos-labs/ts-sdk@1.0.0:
+    resolution: {integrity: sha512-WE7rBlQM+rEwBUmG4zOcTaLi47frs+gOb5ZuAdJB37wqNLwbo143tgAYq63bsvmb6x41i0bq+rL7rkvcBjvIpQ==}
     engines: {node: '>=11.0.0'}
     dependencies:
       '@aptos-labs/aptos-client': 0.0.2
@@ -176,25 +176,25 @@ packages:
       - debug
     dev: false
 
-  /@aptos-labs/wallet-adapter-core@3.0.0(@aptos-labs/ts-sdk@0.0.7)(aptos@1.20.0):
-    resolution: {integrity: sha512-aeKO4NJWy4pPw54vyUa5embqlaosSeTCdiQ41O+i5fG8gD+YBVepJHaqx/dai3rABFwKTxmckpe+Q7SrIUGyyQ==}
+  /@aptos-labs/wallet-adapter-core@3.1.1(@aptos-labs/ts-sdk@1.0.0)(aptos@1.20.0):
+    resolution: {integrity: sha512-16IfsvqLnnFKWmhEDT9YbJDQYne3gG355iVdD4tMw6/SMOxBenlt0quy+WMCIiaAnInQvH87bYo48LYfeG4bfA==}
     peerDependencies:
-      '@aptos-labs/ts-sdk': ^0.0.7
-      aptos: ^1.19.0
+      '@aptos-labs/ts-sdk': ^1.0.0
+      aptos: ^1.20.0
     dependencies:
-      '@aptos-labs/ts-sdk': 0.0.7
+      '@aptos-labs/ts-sdk': 1.0.0
       aptos: 1.20.0
       buffer: 6.0.3
       eventemitter3: 4.0.7
       tweetnacl: 1.0.3
     dev: false
 
-  /@aptos-labs/wallet-adapter-react@2.0.0(@aptos-labs/ts-sdk@0.0.7)(aptos@1.20.0)(react@18.2.0):
-    resolution: {integrity: sha512-H5lqP7uktGWGiI4+d2ESRyPv1XajI4Lx2wxd+DkNSHsbs95vE4XG+WsfmBkTYsonb1xdHTS5D20Sy+/ZG9hfEQ==}
+  /@aptos-labs/wallet-adapter-react@2.1.1(@aptos-labs/ts-sdk@1.0.0)(aptos@1.20.0)(react@18.2.0):
+    resolution: {integrity: sha512-8nHGql/q5OsVuNE1AeSGnkWAph28rcHdiw7KrSW1LuuxAV07l/Wy7HxFqi4KDlTB2q6m66XOhHosMEq5yVocuA==}
     peerDependencies:
       react: ^18
     dependencies:
-      '@aptos-labs/wallet-adapter-core': 3.0.0(@aptos-labs/ts-sdk@0.0.7)(aptos@1.20.0)
+      '@aptos-labs/wallet-adapter-core': 3.1.1(@aptos-labs/ts-sdk@1.0.0)(aptos@1.20.0)
       react: 18.2.0
     transitivePeerDependencies:
       - '@aptos-labs/ts-sdk'
@@ -1707,8 +1707,8 @@ packages:
     resolution: {integrity: sha512-9EWhdTtpaNBSDf2i8nwkWWHfgXGumTVAQe4KuC/R0p3A842MiZhpMAU1WxaZkEO0fcvTbfnM/svAIMVcilDtkw==}
     dev: false
 
-  /@cosmos-kit/core@2.7.7(@cosmjs/amino@0.32.0)(@cosmjs/cosmwasm-stargate@0.32.0)(@cosmjs/proto-signing@0.32.0)(@cosmjs/stargate@0.32.0)(cosmjs-types@0.9.0):
-    resolution: {integrity: sha512-i/L66ieq3G8lB1eKXqzEYqFVQp0crsR2IuwqDXxytmy02WAydCZInAGiPXKklCBWecWGR6z305NJUynaWmYjmQ==}
+  /@cosmos-kit/core@2.7.8(@cosmjs/amino@0.32.0)(@cosmjs/cosmwasm-stargate@0.32.0)(@cosmjs/proto-signing@0.32.0)(@cosmjs/stargate@0.32.0)(cosmjs-types@0.9.0):
+    resolution: {integrity: sha512-la1bVFNaIvIpqFRHtWDYBf95B9j+8mQ4CC2JyEt6bONzEg+27KHQ8xmOpf9fhLC9Tc4/c4LBc0yvcvsd7T13yw==}
     peerDependencies:
       '@cosmjs/amino': '>= 0.28'
       '@cosmjs/cosmwasm-stargate': '>= 0.28'
@@ -1751,7 +1751,7 @@ packages:
       '@chain-registry/keplr': 1.25.0
       '@cosmjs/amino': 0.32.0
       '@cosmjs/proto-signing': 0.32.0
-      '@cosmos-kit/core': 2.7.7(@cosmjs/amino@0.32.0)(@cosmjs/cosmwasm-stargate@0.32.0)(@cosmjs/proto-signing@0.32.0)(@cosmjs/stargate@0.32.0)(cosmjs-types@0.9.0)
+      '@cosmos-kit/core': 2.7.8(@cosmjs/amino@0.32.0)(@cosmjs/cosmwasm-stargate@0.32.0)(@cosmjs/proto-signing@0.32.0)(@cosmjs/stargate@0.32.0)(cosmjs-types@0.9.0)
     transitivePeerDependencies:
       - '@azure/app-configuration'
       - '@azure/cosmos'
@@ -1780,7 +1780,7 @@ packages:
       '@chain-registry/keplr': 1.25.0
       '@cosmjs/amino': 0.32.0
       '@cosmjs/proto-signing': 0.32.0
-      '@cosmos-kit/core': 2.7.7(@cosmjs/amino@0.32.0)(@cosmjs/cosmwasm-stargate@0.32.0)(@cosmjs/proto-signing@0.32.0)(@cosmjs/stargate@0.32.0)(cosmjs-types@0.9.0)
+      '@cosmos-kit/core': 2.7.8(@cosmjs/amino@0.32.0)(@cosmjs/cosmwasm-stargate@0.32.0)(@cosmjs/proto-signing@0.32.0)(@cosmjs/stargate@0.32.0)(cosmjs-types@0.9.0)
       '@cosmos-kit/walletconnect': 2.4.10(@cosmjs/amino@0.32.0)(@cosmjs/cosmwasm-stargate@0.32.0)(@cosmjs/proto-signing@0.32.0)(@cosmjs/stargate@0.32.0)(cosmjs-types@0.9.0)
     transitivePeerDependencies:
       - '@azure/app-configuration'
@@ -1831,14 +1831,14 @@ packages:
       - utf-8-validate
     dev: false
 
-  /@cosmos-kit/react-lite@2.5.9(@cosmjs/amino@0.32.0)(@cosmjs/cosmwasm-stargate@0.32.0)(@cosmjs/proto-signing@0.32.0)(@cosmjs/stargate@0.32.0)(cosmjs-types@0.9.0)(react-dom@18.2.0)(react@18.2.0):
-    resolution: {integrity: sha512-2RWvR47RCFSyJKtit5g5TjRG504BXDj3mruo5Ukyt5p0n6O+kIDUyz0o1HlVUD4wfxRIr4jgYWU52EDYeYGavQ==}
+  /@cosmos-kit/react-lite@2.5.10(@cosmjs/amino@0.32.0)(@cosmjs/cosmwasm-stargate@0.32.0)(@cosmjs/proto-signing@0.32.0)(@cosmjs/stargate@0.32.0)(cosmjs-types@0.9.0)(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-w1ZY4hoc71tQ1v06bll1sf4NmESPUVCoXSEGzp21c/U9O4WhPXuAK64+xexhGbYl0jbbRZz43tpKGAUuLejr7g==}
     peerDependencies:
       react: ^18
       react-dom: ^18
     dependencies:
       '@chain-registry/types': 0.17.0
-      '@cosmos-kit/core': 2.7.7(@cosmjs/amino@0.32.0)(@cosmjs/cosmwasm-stargate@0.32.0)(@cosmjs/proto-signing@0.32.0)(@cosmjs/stargate@0.32.0)(cosmjs-types@0.9.0)
+      '@cosmos-kit/core': 2.7.8(@cosmjs/amino@0.32.0)(@cosmjs/cosmwasm-stargate@0.32.0)(@cosmjs/proto-signing@0.32.0)(@cosmjs/stargate@0.32.0)(cosmjs-types@0.9.0)
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
     transitivePeerDependencies:
@@ -1870,7 +1870,7 @@ packages:
     dependencies:
       '@cosmjs/amino': 0.32.0
       '@cosmjs/proto-signing': 0.32.0
-      '@cosmos-kit/core': 2.7.7(@cosmjs/amino@0.32.0)(@cosmjs/cosmwasm-stargate@0.32.0)(@cosmjs/proto-signing@0.32.0)(@cosmjs/stargate@0.32.0)(cosmjs-types@0.9.0)
+      '@cosmos-kit/core': 2.7.8(@cosmjs/amino@0.32.0)(@cosmjs/cosmwasm-stargate@0.32.0)(@cosmjs/proto-signing@0.32.0)(@cosmjs/stargate@0.32.0)(cosmjs-types@0.9.0)
       '@walletconnect/sign-client': 2.10.5
       '@walletconnect/types': 2.10.4
       '@walletconnect/utils': 2.10.5
