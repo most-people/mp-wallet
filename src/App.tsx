@@ -59,6 +59,12 @@ export default function App() {
                 <br />
                 <br />
                 <pre>
+                  <code>Chain ID: {aki.ethereum.chainId}</code>
+                </pre>
+                <pre>
+                  <code>Chain Name: {aki.ethereum.chainName}</code>
+                </pre>
+                <pre>
                   <code>ERC20 Token Address:</code>
                 </pre>
                 <input

@@ -156,8 +156,8 @@ export const useAkiWallet = () => {
     signMessage,
     sendNativeToken,
     installed,
-    // Ethereum
     changeNetwork,
+    // Ethereum
     ethereum,
     // Sui
     sui,

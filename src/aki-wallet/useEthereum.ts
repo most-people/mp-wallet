@@ -12,6 +12,7 @@ import {
   useWeb3ModalProvider,
 } from "@web3modal/ethers/react";
 import { WalletName, akiError, akiLog } from "./useAkiWallet";
+import { useMemo } from "react";
 
 export interface NativeTokenData {
   toAddress: string;
@@ -227,7 +228,7 @@ export const useEthereum = () => {
   };
 
   const installed = (wallet_name: WalletName) => {
-    if (wallet_name === 'WalletConnect') {
+    if (wallet_name === "WalletConnect") {
       return true;
     } else if (wallet_name === "MetaMask") {
       if ("ethereum" in window) {
@@ -250,6 +251,14 @@ export const useEthereum = () => {
     open({ view: "Connect" });
   };
 
+  const chainId = useMemo(() => {
+    return account.chainId;
+  }, [account.chainId]);
+
+  const chainName = useMemo(() => {
+    return chains.find((chain) => chain.chainId === account.chainId)?.name || '';
+  }, [account.chainId]);
+
   return {
     account,
     connect,
@@ -260,5 +269,7 @@ export const useEthereum = () => {
     changeNetwork,
     walletProvider,
     installed,
+    chainId,
+    chainName,
   };
 };
