@@ -38,7 +38,6 @@ export const useSui = () => {
     );
   };
 
-
   const chainId = useMemo(() => {
     return wallet.chain?.id || '';
   }, [wallet.chain?.id]);

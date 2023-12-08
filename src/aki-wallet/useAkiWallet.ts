@@ -60,16 +60,28 @@ export const useAkiWallet = () => {
   const chainId = useMemo(() => {
     if (platform === "Ethereum") {
       return ethereum.chainId;
+    } else if (platform === "Aptos") {
+      return aptos.chainId;
+    } else if (platform === "Cosmos") {
+      return cosmos.chainId;
+    } else if (platform === "Sui") {
+      return sui.chainId;
     }
-    return ''
-  }, [ethereum.chainId]);
+    return "";
+  }, [ethereum.chainId, aptos.chainId, cosmos.chainId, sui.chainId]);
 
   const chainName = useMemo(() => {
     if (platform === "Ethereum") {
       return ethereum.chainName;
+    } else if (platform === "Aptos") {
+      return aptos.chainName;
+    } else if (platform === "Cosmos") {
+      return cosmos.chainName;
+    } else if (platform === "Sui") {
+      return sui.chainName;
     }
-    return ''
-  }, [ethereum.chainId]);
+    return "";
+  }, [ethereum.chainName, aptos.chainName, cosmos.chainName, sui.chainName]);
 
   const address = useMemo(() => {
     return (
@@ -102,6 +114,8 @@ export const useAkiWallet = () => {
   };
 
   const disconnect = async () => {
+    setWalletName('')
+    localStorage.removeItem("wallet_name");
     try {
       await Promise.all([
         ethereum.disconnect(),

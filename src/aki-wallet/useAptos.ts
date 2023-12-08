@@ -4,6 +4,7 @@ import {
   WalletReadyState,
 } from "@aptos-labs/wallet-adapter-react";
 import { WalletName, akiError, akiLog } from "./useAkiWallet";
+import { useMemo } from "react";
 
 export const useAptos = () => {
   const aptos = useWallet();
@@ -45,6 +46,14 @@ export const useAptos = () => {
     }
   };
 
+  const chainId = useMemo(() => {
+    return aptos?.network?.chainId || "";
+  }, [aptos?.network?.chainId]);
+
+  const chainName = useMemo(() => {
+    return aptos?.network?.name || "";
+  }, [aptos?.network?.name]);
+
   return {
     connect,
     signMessage,
@@ -52,5 +61,7 @@ export const useAptos = () => {
     wallets: aptos.wallets,
     disconnect: aptos.disconnect,
     installed,
+    chainId,
+    chainName,
   };
 };
