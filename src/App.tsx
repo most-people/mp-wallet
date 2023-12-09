@@ -28,9 +28,11 @@ export default function App() {
         <br />
         <code>Address: {aki.address}</code>
         <br />
-        <code>Chain ID: {aki.chainId}</code>
+        <code>Chain ID: {aki.getChainId()}</code>
         <br />
-        <code>Chain Name: {aki.chainName}</code>
+        <code>
+          Chain Name: {aki.getChainName()}
+        </code>
         <br />
         <br />
         {aki.address ? (

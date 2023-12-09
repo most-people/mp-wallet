@@ -57,32 +57,6 @@ export const useAkiWallet = () => {
     return getPlatform(walletName);
   }, [walletName]);
 
-  const chainId = useMemo(() => {
-    if (platform === "Ethereum") {
-      return ethereum.chainId;
-    } else if (platform === "Aptos") {
-      return aptos.chainId;
-    } else if (platform === "Cosmos") {
-      return cosmos.chainId;
-    } else if (platform === "Sui") {
-      return sui.chainId;
-    }
-    return "";
-  }, [ethereum.chainId, aptos.chainId, cosmos.chainId, sui.chainId]);
-
-  const chainName = useMemo(() => {
-    if (platform === "Ethereum") {
-      return ethereum.chainName;
-    } else if (platform === "Aptos") {
-      return aptos.chainName;
-    } else if (platform === "Cosmos") {
-      return cosmos.chainName;
-    } else if (platform === "Sui") {
-      return sui.chainName;
-    }
-    return "";
-  }, [ethereum.chainName, aptos.chainName, cosmos.chainName, sui.chainName]);
-
   const address = useMemo(() => {
     return (
       ethereum.account.address ||
@@ -114,7 +88,7 @@ export const useAkiWallet = () => {
   };
 
   const disconnect = async () => {
-    setWalletName('')
+    setWalletName("");
     localStorage.removeItem("wallet_name");
     try {
       await Promise.all([
@@ -163,7 +137,7 @@ export const useAkiWallet = () => {
     } else if (platform === "Sui") {
       //
     } else if (platform === "Cosmos") {
-      //
+      // cosmos.changeChain()
     }
   };
 
@@ -177,7 +151,38 @@ export const useAkiWallet = () => {
       return sui.installed(wallet_name);
     } else if (platform === "Cosmos") {
       return cosmos.installed(wallet_name);
+  }
+  };
+
+  const getChainId = () => {
+    const platform = getPlatform(walletName);
+    if (platform === "Ethereum") {
+      return ethereum.account.chainId
+    } else if (platform === "Aptos") {
+      return aptos?.network?.chainId;
+    } else if (platform === "Sui") {
+      return sui.wallet.chain?.id || ''
+    } else if (platform === "Cosmos") {
+      return cosmos.wallet.chain.chain_id;
     }
+    return "";
+  };
+  const getChainName = () => {
+    const platform = getPlatform(walletName);
+    if (platform === "Ethereum") {
+      return (
+        ethereum.chains.find(
+          (chain) => chain.chainId === ethereum.account.chainId
+        )?.name || ""
+      );
+    } else if (platform === "Aptos") {
+      return aptos?.network?.name || '';
+    } else if (platform === "Sui") {
+      return sui.wallet.chain?.name || "";
+    } else if (platform === "Cosmos") {
+      return cosmos.wallet.chain.chain_name
+    }
+    return "";
   };
 
   return {
@@ -191,8 +196,8 @@ export const useAkiWallet = () => {
     sendNativeToken,
     installed,
     changeChain,
-    chainId,
-    chainName,
+    getChainId,
+    getChainName,
     // Ethereum
     ethereum,
     // Sui

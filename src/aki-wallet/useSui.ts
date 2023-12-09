@@ -5,23 +5,22 @@ import { useMemo } from "react";
 export const useSui = () => {
   const wallet = useWallet();
   const signMessage = async (message: string) => {
-    console.log('🌊', wallet)
-    // if (!wallet.account) {
-    //   akiError("Not found Wallet account");
-    //   return;
-    // }
+    if (!wallet.account) {
+      akiError("Not found Wallet account");
+      return;
+    }
 
-    // try {
-    //   const msgBytes = new TextEncoder().encode(message);
-    //   const result = await wallet.signMessage({
-    //     message: msgBytes,
-    //   });
-    //   akiLog(JSON.stringify(result, null, 2));
-    //   return result.signature;
-    // } catch (error: any) {
-    //   akiError(error);
-    // }
-    // return "";
+    try {
+      const msgBytes = new TextEncoder().encode(message);
+      const result = await wallet.signMessage({
+        message: msgBytes,
+      });
+      akiLog(JSON.stringify(result, null, 2));
+      return result.signature;
+    } catch (error: any) {
+      akiError(error);
+    }
+    return "";
   };
 
   const connect = async (wallet_name: WalletName) => {
@@ -38,13 +37,7 @@ export const useSui = () => {
     );
   };
 
-  const chainId = useMemo(() => {
-    return wallet.chain?.id || '';
-  }, [wallet.chain?.id]);
 
-  const chainName = useMemo(() => {
-    return wallet.chain?.name || '';
-  }, [wallet.chain?.name]);
 
   return {
     connect,
@@ -52,7 +45,5 @@ export const useSui = () => {
     signMessage,
     wallet,
     installed,
-    chainId,
-    chainName,
   };
 };

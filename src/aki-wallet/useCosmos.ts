@@ -1,7 +1,7 @@
 import { useChainWallet, useWallet } from "@cosmos-kit/react-lite";
 import { WalletName, akiError, akiLog } from "./useAkiWallet";
 import { chains } from "chain-registry";
-import { useMemo, useState } from "react";
+import { useState } from "react";
 
 export type CosmosChainName = "Cosmos Hub" | "Kava" | "Dora Vota" | "Injective";
 
@@ -65,10 +65,6 @@ export const useCosmos = () => {
     // connect("Keplr");
   };
 
-  const chainId = useMemo(() => {
-    return wallet.chain.chain_id;
-  }, [wallet.chain.chain_id]);
-
   return {
     signMessage,
     connect,
@@ -76,7 +72,5 @@ export const useCosmos = () => {
     installed,
     wallet,
     changeChain,
-    chainId,
-    chainName,
   };
 };

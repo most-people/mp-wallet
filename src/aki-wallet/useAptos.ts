@@ -46,13 +46,7 @@ export const useAptos = () => {
     }
   };
 
-  const chainId = useMemo(() => {
-    return aptos?.network?.chainId || "";
-  }, [aptos?.network?.chainId]);
 
-  const chainName = useMemo(() => {
-    return aptos?.network?.name || "";
-  }, [aptos?.network?.name]);
 
   return {
     connect,
@@ -61,7 +55,6 @@ export const useAptos = () => {
     wallets: aptos.wallets,
     disconnect: aptos.disconnect,
     installed,
-    chainId,
-    chainName,
+    network:aptos.network
   };
 };

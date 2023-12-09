@@ -271,5 +271,6 @@ export const useEthereum = () => {
     installed,
     chainId,
     chainName,
+    chains,
   };
 };
