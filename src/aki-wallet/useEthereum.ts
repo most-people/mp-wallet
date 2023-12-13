@@ -36,7 +36,7 @@ export const web3modalMetadata = {
 
 export const useEthereum = () => {
   // Set chains
-  const chains = [
+  const mainnet = [
     {
       chainId: 1,
       name: "Ethereum",
@@ -45,43 +45,36 @@ export const useEthereum = () => {
       rpcUrl: "https://cloudflare-eth.com",
     },
     {
-      chainId: 5,
-      name: "Goerli",
-      currency: "ETH",
-      explorerUrl: "https://goerli.etherscan.io",
-      rpcUrl: "https://rpc.ankr.com/eth_goerli",
-    },
-    {
       chainId: 56,
-      name: "BNB Smart Chain Mainnet",
+      name: "BNB Smart Chain",
       currency: "BNB",
       explorerUrl: "https://bscscan.com",
       rpcUrl: "https://binance.llamarpc.com",
     },
     {
       chainId: 137,
-      name: "Polygon Mainnet",
+      name: "Polygon",
       currency: "MATIC",
       explorerUrl: "https://polygonscan.com",
-      rpcUrl: "https://polygon.llamarpc.com",
+      rpcUrl: "https://polygon-rpc.com",
     },
     {
       chainId: 169,
-      name: "Manta Pacific Mainnet",
+      name: "Manta Pacific",
       currency: "ETH",
       explorerUrl: "https://pacific-explorer.manta.network",
       rpcUrl: "https://pacific-rpc.manta.network/http",
     },
     {
       chainId: 204,
-      name: "opBNB Mainnet",
+      name: "opBNB",
       currency: "BNB",
       explorerUrl: "https://mainnet.opbnbscan.com",
       rpcUrl: "https://opbnb.publicnode.com",
     },
     {
       chainId: 324,
-      name: "zkSync Mainnet",
+      name: "zkSync",
       currency: "ETH",
       explorerUrl: "https://explorer.zksync.io",
       rpcUrl: "https://zksync-era.blockpi.network/v1/rpc/public",
@@ -107,6 +100,23 @@ export const useEthereum = () => {
       explorerUrl: "https://ropsten.etherscan.io",
       rpcUrl: "https://rpc.ankr.com/eth_ropsten",
     },
+  ];
+
+  const testnet = [
+    {
+      chainId: 5,
+      name: "Goerli",
+      currency: "ETH",
+      explorerUrl: "https://goerli.etherscan.io",
+      rpcUrl: "https://rpc.ankr.com/eth_goerli",
+    },
+    {
+      chainId: 80001,
+      name: "Mumbai",
+      currency: "MATIC",
+      explorerUrl: "https://mumbai.polygonscan.com",
+      rpcUrl: "https://rpc-mumbai.maticvigil.com",
+    },
     {
       chainId: 97,
       name: "BNB Smart Chain Testnet",
@@ -121,14 +131,9 @@ export const useEthereum = () => {
       explorerUrl: "https://sepolia.explorer.zksync.io",
       rpcUrl: "https://sepolia.era.zksync.dev",
     },
-    {
-      chainId: 80001,
-      name: "Mumbai",
-      currency: "MATIC",
-      explorerUrl: "https://mumbai.polygonscan.com",
-      rpcUrl: "https://rpc-mumbai.maticvigil.com",
-    },
   ];
+
+  const chains = [...mainnet, ...testnet];
 
   const ethersConfig = defaultConfig({
     metadata: web3modalMetadata,

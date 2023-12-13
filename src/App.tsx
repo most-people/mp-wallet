@@ -154,7 +154,7 @@ export default function App() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          @2023 AkiProtocol.io丨Version 12.06.21.12
+          @2023 AkiProtocol.io丨Version 12.13.20.20
         </a>
       </footer>
     </div>
