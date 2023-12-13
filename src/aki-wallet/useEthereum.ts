@@ -146,6 +146,16 @@ export const useEthereum = () => {
     ethersConfig,
     chains,
     projectId: "e6c2a442fa23440bfa405c0781315b15",
+    chainImages: {
+      204: "/chains/bnb-logo.svg",
+      59144: "/chains/rsz_linea.webp",
+      169: "/chains/rsz_manta.webp",
+      3: "/chains/unknown-logo.png",
+      5: "/chains/unknown-logo.png",
+      80001: "/chains/unknown-logo.png",
+      97: "/chains/unknown-logo.png",
+      300: "/chains/unknown-logo.png",
+    },
     // enableAnalytics: true,
     // themeMode: 'dark',
     // themeVariables: {
