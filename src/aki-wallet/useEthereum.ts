@@ -38,6 +38,13 @@ export const useEthereum = () => {
   // Set chains
   const chains = [
     {
+      chainId: 1,
+      name: "Ethereum",
+      currency: "ETH",
+      explorerUrl: "https://etherscan.io",
+      rpcUrl: "https://cloudflare-eth.com",
+    },
+    {
       chainId: 5,
       name: "Goerli",
       currency: "ETH",
@@ -45,11 +52,81 @@ export const useEthereum = () => {
       rpcUrl: "https://rpc.ankr.com/eth_goerli",
     },
     {
-      chainId: 1,
-      name: "Ethereum",
+      chainId: 56,
+      name: "BNB Smart Chain Mainnet",
+      currency: "BNB",
+      explorerUrl: "https://bscscan.com",
+      rpcUrl: "https://binance.llamarpc.com",
+    },
+    {
+      chainId: 137,
+      name: "Polygon Mainnet",
+      currency: "MATIC",
+      explorerUrl: "https://polygonscan.com",
+      rpcUrl: "https://polygon.llamarpc.com",
+    },
+    {
+      chainId: 169,
+      name: "Manta Pacific Mainnet",
       currency: "ETH",
-      explorerUrl: "https://etherscan.io",
-      rpcUrl: "https://cloudflare-eth.com",
+      explorerUrl: "https://pacific-explorer.manta.network",
+      rpcUrl: "https://pacific-rpc.manta.network/http",
+    },
+    {
+      chainId: 204,
+      name: "opBNB Mainnet",
+      currency: "BNB",
+      explorerUrl: "https://mainnet.opbnbscan.com",
+      rpcUrl: "https://opbnb.publicnode.com",
+    },
+    {
+      chainId: 324,
+      name: "zkSync Mainnet",
+      currency: "ETH",
+      explorerUrl: "https://explorer.zksync.io",
+      rpcUrl: "https://zksync-era.blockpi.network/v1/rpc/public",
+    },
+    {
+      chainId: 42161,
+      name: "Arbitrum One",
+      currency: "ETH",
+      explorerUrl: "https://arbiscan.io",
+      rpcUrl: "https://arbitrum.llamarpc.com",
+    },
+    {
+      chainId: 59144,
+      name: "Linea",
+      currency: "ETH",
+      explorerUrl: "https://lineascan.build",
+      rpcUrl: "https://linea.blockpi.network/v1/rpc/public",
+    },
+    {
+      chainId: 3,
+      name: "Ropsten",
+      currency: "ETH",
+      explorerUrl: "https://ropsten.etherscan.io",
+      rpcUrl: "https://rpc.ankr.com/eth_ropsten",
+    },
+    {
+      chainId: 97,
+      name: "BNB Smart Chain Testnet",
+      currency: "tBNB",
+      explorerUrl: "https://testnet.bscscan.com",
+      rpcUrl: "https://endpoints.omniatech.io/v1/bsc/testnet/public",
+    },
+    {
+      chainId: 300,
+      name: "zkSync Sepolia Testnet",
+      currency: "ETH",
+      explorerUrl: "https://sepolia.explorer.zksync.io",
+      rpcUrl: "https://sepolia.era.zksync.dev",
+    },
+    {
+      chainId: 80001,
+      name: "Mumbai",
+      currency: "MATIC",
+      explorerUrl: "https://mumbai.polygonscan.com",
+      rpcUrl: "https://rpc-mumbai.maticvigil.com",
     },
   ];
 
@@ -256,7 +333,9 @@ export const useEthereum = () => {
   }, [account.chainId]);
 
   const chainName = useMemo(() => {
-    return chains.find((chain) => chain.chainId === account.chainId)?.name || '';
+    return (
+      chains.find((chain) => chain.chainId === account.chainId)?.name || ""
+    );
   }, [account.chainId]);
 
   return {
