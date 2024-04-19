@@ -72,8 +72,7 @@ export default function App() {
                 <pre>
                   <code>Sign Message:</code>
                 </pre>
-                <input
-                  type="text"
+                <textarea
                   value={message}
                   onChange={(e) => setMessage(e.target.value)}
                   placeholder="Sign Message"
@@ -82,12 +81,7 @@ export default function App() {
                 <pre>
                   <code>Signature:</code>
                 </pre>
-                <input
-                  type="text"
-                  value={signature}
-                  readOnly
-                  placeholder="Signature"
-                />
+                <textarea value={signature} readOnly placeholder="Signature" />
 
                 <pre>
                   <code>ERC20 Token Address:</code>
