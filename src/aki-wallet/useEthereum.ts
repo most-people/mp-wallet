@@ -191,7 +191,7 @@ export const useEthereum = () => {
   const signMessage = async (message: string) => {
     if (!walletProvider) {
       akiError("Not found Wallet Provider");
-      return;
+      return "";
     }
     const provider = new BrowserProvider(walletProvider);
     try {
@@ -205,8 +205,7 @@ export const useEthereum = () => {
       openWalletSchema();
 
       const sig = await signer.signMessage(message);
-      akiLog("Sig: " + sig);
-      return sig;
+      return sig as string;
     } catch (error: any) {
       const message =
         error?.data?.message ||

@@ -7,7 +7,7 @@ export const useSui = () => {
   const signMessage = async (message: string) => {
     if (!wallet.account) {
       akiError("Not found Wallet account");
-      return;
+      return "";
     }
 
     try {
@@ -15,8 +15,8 @@ export const useSui = () => {
       const result = await wallet.signMessage({
         message: msgBytes,
       });
-      akiLog(JSON.stringify(result, null, 2));
-      return result.signature;
+      // akiLog(JSON.stringify(result, null, 2));
+      return result.signature as string;
     } catch (error: any) {
       akiError(error);
     }
@@ -36,8 +36,6 @@ export const useSui = () => {
       wallet.allAvailableWallets.find((e) => e.name === wallet_name)
     );
   };
-
-
 
   return {
     connect,

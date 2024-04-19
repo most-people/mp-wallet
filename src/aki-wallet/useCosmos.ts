@@ -45,8 +45,7 @@ export const useCosmos = () => {
         message
       );
       if (result) {
-        akiLog("Sig: " + result.signature);
-        return result.signature;
+        return result.signature as string;
       }
     } catch (error) {
       akiError("Sign Message Error: " + error);

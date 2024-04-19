@@ -15,7 +15,7 @@ export const useAptos = () => {
     };
     try {
       const result = await aptos.signMessage(payload);
-      akiLog(JSON.stringify(result, null, 2));
+      // akiLog(JSON.stringify(result, null, 2));
       return result.signature as string;
     } catch (error: any) {
       akiError(error);
@@ -46,8 +46,6 @@ export const useAptos = () => {
     }
   };
 
-
-
   return {
     connect,
     signMessage,
@@ -55,6 +53,6 @@ export const useAptos = () => {
     wallets: aptos.wallets,
     disconnect: aptos.disconnect,
     installed,
-    network:aptos.network
+    network: aptos.network,
   };
 };

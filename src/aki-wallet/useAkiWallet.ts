@@ -113,6 +113,7 @@ export const useAkiWallet = () => {
     } else if (platform === "Cosmos") {
       return cosmos.signMessage(message);
     }
+    return Promise.resolve("");
   };
 
   const sendNativeToken = (data: NativeTokenData) => {
@@ -151,17 +152,17 @@ export const useAkiWallet = () => {
       return sui.installed(wallet_name);
     } else if (platform === "Cosmos") {
       return cosmos.installed(wallet_name);
-  }
+    }
   };
 
   const getChainId = () => {
     const platform = getPlatform(walletName);
     if (platform === "Ethereum") {
-      return ethereum.account.chainId
+      return ethereum.account.chainId;
     } else if (platform === "Aptos") {
       return aptos?.network?.chainId;
     } else if (platform === "Sui") {
-      return sui.wallet.chain?.id || ''
+      return sui.wallet.chain?.id || "";
     } else if (platform === "Cosmos") {
       return cosmos.wallet.chain.chain_id;
     }
@@ -176,11 +177,11 @@ export const useAkiWallet = () => {
         )?.name || ""
       );
     } else if (platform === "Aptos") {
-      return aptos?.network?.name || '';
+      return aptos?.network?.name || "";
     } else if (platform === "Sui") {
       return sui.wallet.chain?.name || "";
     } else if (platform === "Cosmos") {
-      return cosmos.wallet.chain.chain_name
+      return cosmos.wallet.chain.chain_name;
     }
     return "";
   };

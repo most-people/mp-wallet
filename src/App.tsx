@@ -12,14 +12,21 @@ export default function App() {
     "0xF789578a6E5794BE065FedcFe76dEAC44380C4dC"
   );
   const [toAmount, setToAmount] = useState("0.001");
+  const [message, setMessage] = useState("Hi, sign: https://most.red");
+  const [signature, setSignature] = useState("");
 
   const aki = useAkiWallet();
+
+  const sign = async () => {
+    const res = await aki.signMessage(message);
+    setSignature(res);
+  };
 
   return (
     <div className="App">
       <header>
         <img src={logo} className="App-logo" alt="logo" />
-        <p>Aki Protocol | Web3 Influencer Marketing, Rewards & Data</p>
+        <p>Most People | Web3 Influencer Marketing, Rewards & Data</p>
       </header>
       <main>
         <code>
@@ -30,17 +37,13 @@ export default function App() {
         <br />
         <code>Chain ID: {aki.getChainId()}</code>
         <br />
-        <code>
-          Chain Name: {aki.getChainName()}
-        </code>
+        <code>Chain Name: {aki.getChainName()}</code>
         <br />
         <br />
         {aki.address ? (
           <>
             <button onClick={() => aki.disconnect()}>Disconnect</button>
-            <button onClick={() => aki.signMessage("Hello! Aki Protocol")}>
-              Sign Message
-            </button>
+            <button onClick={sign}>Sign Message</button>
             {aki.platform === "Ethereum" && (
               <>
                 <button onClick={() => aki.changeChain()}>
@@ -65,6 +68,27 @@ export default function App() {
                 </button>
                 <br />
                 <br />
+
+                <pre>
+                  <code>Sign Message:</code>
+                </pre>
+                <input
+                  type="text"
+                  value={message}
+                  onChange={(e) => setMessage(e.target.value)}
+                  placeholder="Sign Message"
+                />
+
+                <pre>
+                  <code>Signature:</code>
+                </pre>
+                <input
+                  type="text"
+                  value={signature}
+                  readOnly
+                  placeholder="Signature"
+                />
+
                 <pre>
                   <code>ERC20 Token Address:</code>
                 </pre>
@@ -154,7 +178,7 @@ export default function App() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          @2023 AkiProtocol.io丨Version 12.13.20.20
+          @2024 most.red丨Version 04.19.15.22
         </a>
       </footer>
     </div>
